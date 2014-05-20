@@ -15,11 +15,11 @@ test('median', function(t){
   var pt5 = point(19,7, {population: 200})
   var ptFC = featurecollection([pt1, pt2, pt3, pt4, pt5])
 
-  var averaged = average(polyFC, ptFC, 'population', 'pop_avg')
+  var medianed = average(polyFC, ptFC, 'population', 'pop_med')
 
-  t.equal(averaged.features[0].geometry.type, 'Polygon')
-  t.equal(averaged.features[0].properties.pop_avg, 450)
-  t.equal(averaged.features[1].properties.pop_avg, 500)
+  t.equal(medianed.features[0].geometry.type, 'Polygon')
+  t.equal(medianed.features[0].properties.pop_med, 450)
+  t.equal(medianed.features[1].properties.pop_med, 500)
 
   t.end()
 })
