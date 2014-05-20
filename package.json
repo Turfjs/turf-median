@@ -1,0 +1,28 @@
+{
+  "name": "turf-median",
+  "version": "0.0.1",
+  "description": "turf median module",
+  "main": "index.js",
+  "scripts": {
+    "test": "tape test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/morganherlocker/turf-median.git"
+  },
+  "keywords": [
+    "turf",
+    "geojson",
+    "median",
+    "stats"
+  ],
+  "author": "morganherlocker",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/morganherlocker/turf-median/issues"
+  },
+  "homepage": "https://github.com/morganherlocker/turf-median",
+  "devDependencies": {
+    "tape": "^2.13.1"
+  }
+}
