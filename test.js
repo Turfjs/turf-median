@@ -4,7 +4,7 @@ var polygon = require('turf-polygon')
 var point = require('turf-point')
 var featurecollection =  require('turf-featurecollection')
 
-test('average', function(t){
+test('median', function(t){
   var poly1 = polygon([[[0,0],[10,0],[10,10], [0,10]]])
   var poly2 = polygon([[[10,0],[20,10],[20,20], [20,0]]])
   var polyFC = featurecollection([poly1, poly2])
