@@ -1,4 +1,4 @@
-var average = require('./')
+var median = require('./')
 var test = require('tape')
 var polygon = require('turf-polygon')
 var point = require('turf-point')
@@ -15,7 +15,7 @@ test('median', function(t){
   var pt5 = point(19,7, {population: 200})
   var ptFC = featurecollection([pt1, pt2, pt3, pt4, pt5])
 
-  var medianed = average(polyFC, ptFC, 'population', 'pop_med')
+  var medianed = median(polyFC, ptFC, 'population', 'pop_med')
 
   t.equal(medianed.features[0].geometry.type, 'Polygon')
   t.equal(medianed.features[0].properties.pop_med, 450)
