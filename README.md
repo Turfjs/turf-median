@@ -4,6 +4,29 @@ turf-median
 
 Calculates the median value of a field for points within a set of polygons.
 
+###Install
+
+```sh
+npm install turf-median
+```
+
+###Parameters
+
+|name|description|
+|---|---|
+|polys|featurecollection of polygons|
+|points|featurecollection of points|
+|inField|field to map|
+|outField|new field|
+
+###Usage
+
+```js
+median(polyFC, ptFC, inField, outField)
+```
+
+###Example
+
 ```js
 var median = require('turf-median')
 var point = require('turf-point')
