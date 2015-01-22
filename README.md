@@ -1,50 +1,55 @@
-turf-median
-===========
-[![Build Status](https://travis-ci.org/Turfjs/turf-median.svg?branch=master)](https://travis-ci.org/Turfjs/turf-median)
+# turf-median
 
-Calculates the median value of a field for points within a set of polygons.
+[![build status](https://secure.travis-ci.org/Turfjs/turf-median.png)](http://travis-ci.org/Turfjs/turf-median)
 
-###Install
+turf median module
+
+
+### `turf.median(polygons, points, inField, outField)`
+
+Takes a set of polygons, a set of points, and tag polygons with the sum
+of point property values contained within.
+
+
+### Parameters
+
+| parameter  | type              | description                             |
+| ---------- | ----------------- | --------------------------------------- |
+| `polygons` | FeatureCollection | a FeatureCollection of Polygon features |
+| `points`   | FeatureCollection | a FeatureCollection of Point features   |
+| `inField`  | string            | the field in input data to analyze      |
+| `outField` | string            | the field in which to store results     |
+
+
+### Example
+
+```js
+var polygons = turf.featurecollection([
+  turf.polygon([[[0,0],[10,0],[10,10],[0,10],[0,0]]]),
+  turf.polygon([[[10,0],[20,10],[20,20], [20,0]]])]);
+var points = turf.featurecollection([
+  turf.point([5,5], {population: 200}),
+  turf.point([1,3], {population: 600}),
+  turf.point([14,2], {population: 100}),
+  turf.point([13,1], {population: 200}),
+  turf.point([19,7], {population: 300})]);
+var aggregated = turf.median(polygons, points, 'population', 'median');
+//=polygons
+//=points
+//=aggregated
+```
+
+## Installation
+
+Requires [nodejs](http://nodejs.org/).
 
 ```sh
-npm install turf-median
+$ npm install turf-median
 ```
 
-###Parameters
+## Tests
 
-|name|description|
-|---|---|
-|polys|featurecollection of polygons|
-|points|featurecollection of points|
-|inField|field to map|
-|outField|new field|
-
-###Usage
-
-```js
-median(polyFC, ptFC, inField, outField)
+```sh
+$ npm test
 ```
 
-###Example
-
-```js
-var median = require('turf-median')
-var point = require('turf-point')
-var polygon = require('turf-polygon')
-var featurecollection = require('turf-featurecollection')
-
-var poly1 = polygon([[[0,0],[10,0],[10,10], [0,10]]])
-var poly2 = polygon([[[10,0],[20,10],[20,20], [20,0]]])
-var polyFC = featurecollection([poly1, poly2])
-var pt1 = point(5,5, {population: 200})
-var pt2 = point(1,3, {population: 600})
-var pt3 = point(14,2, {population: 100})
-var pt4 = point(13,1, {population: 200})
-var pt5 = point(19,7, {population: 300})
-var ptFC = featurecollection([pt1, pt2, pt3, pt4, pt5])
-
-var medianed = median(polyFC, ptFC, 'population', 'pop_median')
-
-console.log(medianed.features[0].properties.pop_median) // 400
-console.log(medianed.features[1].properties.pop_median) // 200
-```
