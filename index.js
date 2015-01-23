@@ -1,4 +1,3 @@
-var ss = require('simple-statistics');
 var inside = require('turf-inside');
 
 /**
@@ -58,7 +57,7 @@ module.exports = function(polyFC, ptFC, inField, outField){
   });
 
   return polyFC;
-}
+};
 
 function median(x) {
     // The median of an empty list is null
